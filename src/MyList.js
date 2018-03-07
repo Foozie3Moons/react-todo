@@ -71,19 +71,19 @@ class MyList extends Component {
   }
 
   render() {
-    {/* this console log helped me determine what was happening to the */}
-    {/* todoItemArray, since there was some odd behavior and the toDoItemArray was not */}
-    {/* an array */}
-    {/* console.log(this.state.toDoItemArray, typeof this.state.toDoItemArray) */}
-
+    {/*
+      this console log helped me determine what was happening to the
+      todoItemArray, since there was some odd behavior and the toDoItemArray was not
+      an array:
+      `console.log(this.state.toDoItemArray, typeof this.state.toDoItemArray)``
+    */}
     {/* creating all of our jsx html elements from our state using map */}
     let jsxTodos = this.state.toDoItemArray.map((listItem, index) => {
+      {/* passing the index into deleteItem so we can splice the right one we also need to define (e) because we are adding additional paramaters to deleteItem */}
       return (
         <ListItem
           key={index}
           doThis={listItem}
-          {/* passing the index into deleteItem so we can splice the right one */}
-          {/* we also need to define (e) because we are adding additional paramaters to deleteItem */}
           deleteItem={(e) => this.deleteItem(e, index)}
         />
       )
@@ -95,8 +95,8 @@ class MyList extends Component {
         <ul>
           {jsxTodos}
         </ul>
+        {/* this is storing a reference to the element in 'this', which is referring to the current component */}
         <input type='text'
-          {/* this is storing a reference to the element in 'this', which is referring to the current component */}
           ref={el => {
             this.textInput = el;
           }}
